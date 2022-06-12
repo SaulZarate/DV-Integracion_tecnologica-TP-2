@@ -1,0 +1,24 @@
+{
+  "name": "integraciontecnologica",
+  "version": "1.0.0",
+  "description": "Proyecto de web scraping con API Rest para trabajo practico de la facultad",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "Express",
+    "Node",
+    "MongoDb"
+  ],
+  "author": "Saúl Zarate",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.16",
+    "puppeteer": "^14.3.0"
+  }
+}
