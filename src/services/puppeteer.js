@@ -1,5 +1,6 @@
 const puppeteer = require('puppeteer')
 const { BROWSER_OPTIONS } = require('../config/puppetter')
+const { getJobsCompuTrabajo } = require('../scrappers/computrabajo.scraping')
 
 /* 
 const iPhone = puppeteer.devices['iPhone 6'];
@@ -9,8 +10,8 @@ await page.emulate(iPhone);
 
 const initPuppetter = async () => {
     const browser = await puppeteer.launch(BROWSER_OPTIONS)
-    const page = await browser.newPage()
-    await page.goto('https://www.google.com')
+
+    await getJobsCompuTrabajo(browser, 'backendasdasd')
 
     //await browser.close()
 }
