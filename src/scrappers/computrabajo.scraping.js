@@ -1,3 +1,4 @@
+const { TAB_WAIT_2_REQUEST } = require("../config/puppetter")
 const { replaceSpace } = require("./utils")
 
 const URL_SEARCH_JOB = 'https://www.computrabajo.com.ar/trabajo-de-'
@@ -5,7 +6,7 @@ const URL_SEARCH_JOB = 'https://www.computrabajo.com.ar/trabajo-de-'
 const getJobsCompuTrabajo = async (browser, keywords) => {
     const formatKeyword = replaceSpace(keywords)
     const page = await browser.newPage()
-    await page.goto(URL_SEARCH_JOB+formatKeyword)
+    await page.goto(URL_SEARCH_JOB+formatKeyword, TAB_WAIT_2_REQUEST)
 
     // Validar que haya resultados
     const handleTagBody = (await page.$x('//body'))[0]
@@ -40,4 +41,4 @@ const getJobsCompuTrabajo = async (browser, keywords) => {
 }
 
 
-module.exports = { getJobsCompuTrabajo }
+module.exports = getJobsCompuTrabajo
