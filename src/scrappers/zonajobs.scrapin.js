@@ -2,7 +2,6 @@ const { TAB_WAIT_2_REQUEST } = require("../config/puppetter")
 const { replaceSpace } = require("./utils")
 
 
-//https://www.zonajobs.com.ar/ofertas-de-trabajo-fullstack.html
 const URL_SEARCH_JOB = 'https://www.zonajobs.com.ar/ofertas-de-trabajo-'
 
 
