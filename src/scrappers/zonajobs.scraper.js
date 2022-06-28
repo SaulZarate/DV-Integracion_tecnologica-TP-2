@@ -40,6 +40,8 @@ const getJobsZonaJobs = async(browser, keywords) => {
     }) // End evaluate
 
     console.log(result)
+    await page.close()
+    return result
 }
 
 module.exports = getJobsZonaJobs

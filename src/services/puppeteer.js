@@ -1,23 +1,29 @@
 const puppeteer = require('puppeteer')
 const { BROWSER_OPTIONS } = require('../config/puppetter')
-const getJobsCompuTrabajo = require('../scrappers/computrabajo.scraping')
-const getJobsIndeed = require('../scrappers/indeed.scraping')
-const getJobsZonaJobs = require('../scrappers/zonajobs.scrapin')
+const getJobsBumeran = require('../scrappers/bumeran.scraper')
+const getJobsCompuTrabajo = require('../scrappers/computrabajo.scraper')
+const getJobsIndeed = require('../scrappers/indeed.scraper')
+const getJobsZonaJobs = require('../scrappers/zonajobs.scraper')
 
 
-const keywords = 'backend'
+const keywords = 'node'
 
 const initPuppetter = async () => {
     const startTime = performance.now()/1000
     const browser = await puppeteer.launch(BROWSER_OPTIONS)
     
     
-    // await getJobsCompuTrabajo(browser, keywords)
     /* 
     // Problemas al ejecutarlo sin la visualización del navegador
-    await getJobsZonaJobs(browser, keywords) 
     */
-    // await getJobsIndeed(browser, keywords)
+    await getJobsZonaJobs(browser, keywords) 
+    await getJobsCompuTrabajo(browser, keywords)
+    await getJobsIndeed(browser, keywords)
+    
+    /* 
+    // El metodo evaluate del handleBody devuelve undefined
+    await getJobsBumeran(browser, keywords)
+    */
     
     await browser.close()
     const endTime = performance.now()/1000

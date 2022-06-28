@@ -1,4 +1,4 @@
-const OPEN_BROWSER = false
+const OPEN_BROWSER = true
 const WAIT_UNTIL = 'networkidle2'
 const ENABLE_TIMEOUT = false
 

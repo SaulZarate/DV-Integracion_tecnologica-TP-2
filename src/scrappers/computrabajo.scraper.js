@@ -38,6 +38,8 @@ const getJobsCompuTrabajo = async (browser, keywords) => {
     }) // End evaluate
 
     console.log(result)
+    await page.close()
+    return result
 }
 
 

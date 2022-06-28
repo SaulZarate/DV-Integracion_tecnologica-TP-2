@@ -38,6 +38,8 @@ const getJobsIndeed = async (browser, keywords) => {
     })
 
     console.log(result)
+    await page.close()
+    return result
 }
 
 module.exports = getJobsIndeed
