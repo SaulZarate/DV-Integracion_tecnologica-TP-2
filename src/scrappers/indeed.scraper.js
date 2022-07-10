@@ -37,7 +37,6 @@ const getJobsIndeed = async (browser, keywords) => {
         return jobs
     })
 
-    console.log(result)
     await page.close()
     return result
 }

@@ -17,13 +17,15 @@ const getJobsBumeran = async (browser, keywords) => {
     const handleBody = (await page.$x('//body'))[0]
 
     const result = await handleBody.evaluate( body => {
+
         let jobs = []
 
         const empleos = body.querySelectorAll('#listado-avisos > div')
-        if(!empleos) return jobs
-
+        
+        if(empleos.length <= 1) return jobs
+        //return 'Empleos: '+empleos.length
         for (const empleo of empleos) {
-            if(!empleo.querySelector('h2')) continue
+            if(empleo.querySelector('h2') == null) continue
 
             const link = empleo.firstElementChild.href
             const contentData = empleo.firstElementChild.firstElementChild

@@ -1,10 +1,7 @@
-Computrabajo
-Zonajobs
-Indeed
-Bumeran
-Linkedin
-Servicio de Empleo de Amia (SEA)
-Portal empleo gobierno
-Joobie
-Buscojobs
+Computrabajo    => Ok
+Zonajobs        => Solo funciona en modo open_broser = true
+Indeed          => Ok
+Bumeran         => La busqueda es muy lenta y Solo funciona en modo open_broser = true
+Jooble          => Ok
+Buscojobs       => 
 Buscador de ofertas de Google

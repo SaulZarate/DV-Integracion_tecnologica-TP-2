@@ -1,4 +1,4 @@
-const OPEN_BROWSER = true
+const OPEN_BROWSER = false
 const WAIT_UNTIL = 'networkidle2'
 const ENABLE_TIMEOUT = false
 
@@ -12,4 +12,4 @@ const TAB_WAIT_2_REQUEST = {
     timeout: ENABLE_TIMEOUT ? 30000 : 0
 }
 
-module.exports = { BROWSER_OPTIONS, TAB_WAIT_2_REQUEST }
+module.exports = { BROWSER_OPTIONS, TAB_WAIT_2_REQUEST, OPEN_BROWSER }
