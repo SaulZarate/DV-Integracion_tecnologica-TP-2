@@ -1,4 +1,5 @@
-const OPEN_BROWSER = false
+const OPEN_BROWSER = true
+const WAIT_UNTIL_0 = 'networkidle0'
 const WAIT_UNTIL = 'networkidle2'
 const ENABLE_TIMEOUT = false
 
@@ -12,4 +13,9 @@ const TAB_WAIT_2_REQUEST = {
     timeout: ENABLE_TIMEOUT ? 30000 : 0
 }
 
-module.exports = { BROWSER_OPTIONS, TAB_WAIT_2_REQUEST, OPEN_BROWSER }
+const TAB_WAIT_2_REQUEST_DOMCONTENTLOAD = {
+    waitUntil: WAIT_UNTIL_0,
+    timeout: ENABLE_TIMEOUT ? 30000 : 0
+}
+
+module.exports = { BROWSER_OPTIONS, TAB_WAIT_2_REQUEST, TAB_WAIT_2_REQUEST_DOMCONTENTLOAD, OPEN_BROWSER }

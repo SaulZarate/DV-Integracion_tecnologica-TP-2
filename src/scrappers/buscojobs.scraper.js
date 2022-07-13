@@ -17,7 +17,9 @@ const getJobsBuscojobs = async (browser, keywords) => {
 
         let jobs = []
 
+        const empleos = body.querySelector('h1').textContent
         
+        return body.innerHTML
         /* const empleos = body.querySelectorAll('div.infinite-scroll-component__outerdiv div div > article')
         if(empleos.length == 0) return jobs
 

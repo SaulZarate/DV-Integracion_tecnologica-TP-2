@@ -3,6 +3,7 @@ const { BROWSER_OPTIONS, OPEN_BROWSER } = require('../config/puppetter')
 const getJobsBumeran = require('../scrappers/bumeran.scraper')
 const getJobsBuscojobs = require('../scrappers/buscojobs.scraper')
 const getJobsCompuTrabajo = require('../scrappers/computrabajo.scraper')
+const getJobsGlassdoor = require('../scrappers/glassdoor.scraper')
 const getJobsIndeed = require('../scrappers/indeed.scraper')
 const getJobsJooble = require('../scrappers/jooble.scraper')
 const getJobsZonaJobs = require('../scrappers/zonajobs.scraper')
@@ -16,10 +17,8 @@ const initPuppetter = async () => {
     
     let empleos = []
 
-    const buscojobs = await getJobsBuscojobs(browser, keywords)
-    console.log(buscojobs)
-
-    /* const promiseCompuTrabajo = getJobsCompuTrabajo(browser, keywords)
+    
+    const promiseCompuTrabajo = getJobsCompuTrabajo(browser, keywords)
     const promiseIndeed = getJobsIndeed(browser, keywords)
     const promiseJooble = getJobsJooble(browser, keywords)
     
@@ -27,16 +26,24 @@ const initPuppetter = async () => {
     const indeed = await promiseIndeed
     const jooble = await promiseJooble
 
+
     // Solo funciona cuando se usa el modo open_browser = true en config/puppeteer
     // Acceso denegado | Error code 1020
     if(OPEN_BROWSER){
-        const zonaJobs = await getJobsZonaJobs(browser, keywords) 
+        const promiseZonaJobs = getJobsZonaJobs(browser, keywords) 
+
+        const promiseGlassdoor = getJobsGlassdoor(browser, keywords)
+        const glassdoor = await promiseGlassdoor
+        const zonaJobs = await promiseZonaJobs
+
+        empleos.push({portal: 'Glassdoor', resultados: glassdoor.length ,empleos: glassdoor})
         empleos.push({portal: 'ZonaJobs', resultados: zonaJobs.length ,empleos: zonaJobs})
-    } // Fin para modo open_broser = true
+    }
+
 
     empleos.push({portal: 'Computrabajo', resultados: compuTrabajo.length, empleos: compuTrabajo})
     empleos.push({portal: 'Indeed', resultados: indeed.length, empleos: indeed})
-    empleos.push({portal: 'Jooble', resultados:jooble.length, empleos:jooble}) */
+    empleos.push({portal: 'Jooble', resultados:jooble.length, empleos:jooble})
     
     
     await browser.close()
