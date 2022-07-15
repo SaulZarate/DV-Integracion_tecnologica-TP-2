@@ -1,11 +1,27 @@
-const express = require('express')
-const app = express()
 require('dotenv').config()
+const express = require('express')
+const findBojs = require('./puppeteer')
+const app = express()
 
 const port = process.env.PORT || 5000
 
+app.set('port', port)
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
 
+/* 
+    Endpoints
+*/
+app.get('/', (req, res) => res.json({message: "Ok"}))
 
-app.listen(port , () => {
-    console.log('> Server is up and running on port : ' + port)
+// dominio:port/api/v1/jobs?keywords=php laravel
+app.post('/api/v1/jobs', async (req, res) => {
+    const keywords = req.query.keywords
+
+    const jobs = await findBojs(keywords)
+
+    res.json({keywords,jobs})
 })
+
+
+module.exports = app

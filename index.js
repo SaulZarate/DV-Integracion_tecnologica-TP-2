@@ -1,4 +1,3 @@
-const initPuppetter = require("./src/services/puppeteer");
+const initProyect = require("./src/services");
 
-
-initPuppetter()
+initProyect()

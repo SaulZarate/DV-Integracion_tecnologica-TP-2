@@ -4,4 +4,4 @@ Indeed          => Ok
 Bumeran         => La busqueda es muy lenta y Solo funciona en modo open_broser = true
 Jooble          => Ok
 Buscojobs       => 443 Acceso denegado
-Glassdoor       => 
+Glassdoor       => Solo funciona en modo open_broser = true

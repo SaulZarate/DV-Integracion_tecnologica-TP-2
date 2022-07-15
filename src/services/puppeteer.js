@@ -1,22 +1,20 @@
 const puppeteer = require('puppeteer')
 const { BROWSER_OPTIONS, OPEN_BROWSER } = require('../config/puppetter')
-const getJobsBumeran = require('../scrappers/bumeran.scraper')
-const getJobsBuscojobs = require('../scrappers/buscojobs.scraper')
-const getJobsCompuTrabajo = require('../scrappers/computrabajo.scraper')
-const getJobsGlassdoor = require('../scrappers/glassdoor.scraper')
-const getJobsIndeed = require('../scrappers/indeed.scraper')
-const getJobsJooble = require('../scrappers/jooble.scraper')
-const getJobsZonaJobs = require('../scrappers/zonajobs.scraper')
+const { 
+    getJobsCompuTrabajo, 
+    getJobsIndeed, 
+    getJobsJooble, 
+    getJobsZonaJobs, 
+    getJobsGlassdoor, 
+    getJobsBumeran,
+    getJobsBuscojobs
+} = require('../scrappers')
 
 
-const keywords = 'node js'
-
-const initPuppetter = async () => {
-    const startTime = performance.now()/1000
-    const browser = await puppeteer.launch(BROWSER_OPTIONS)
-    
+const findBojs = async (keywords) => {
     let empleos = []
 
+    const browser = await puppeteer.launch(BROWSER_OPTIONS)
     
     const promiseCompuTrabajo = getJobsCompuTrabajo(browser, keywords)
     const promiseIndeed = getJobsIndeed(browser, keywords)
@@ -31,8 +29,8 @@ const initPuppetter = async () => {
     // Acceso denegado | Error code 1020
     if(OPEN_BROWSER){
         const promiseZonaJobs = getJobsZonaJobs(browser, keywords) 
-
         const promiseGlassdoor = getJobsGlassdoor(browser, keywords)
+
         const glassdoor = await promiseGlassdoor
         const zonaJobs = await promiseZonaJobs
 
@@ -47,11 +45,8 @@ const initPuppetter = async () => {
     
     
     await browser.close()
-    const endTime = performance.now()/1000
-    console.log('Time in seconds: ', (endTime - startTime))
-    
     return empleos
 }
 
 
-module.exports = initPuppetter
+module.exports = findBojs
