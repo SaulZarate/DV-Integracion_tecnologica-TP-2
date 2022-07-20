@@ -34,14 +34,14 @@ const findBojs = async (keywords) => {
         const glassdoor = await promiseGlassdoor
         const zonaJobs = await promiseZonaJobs
 
-        empleos.push({portal: 'Glassdoor', resultados: glassdoor.length ,empleos: glassdoor})
-        empleos.push({portal: 'ZonaJobs', resultados: zonaJobs.length ,empleos: zonaJobs})
+        empleos.push({portal: 'Glassdoor', total: glassdoor.length ,empleos: glassdoor})
+        empleos.push({portal: 'ZonaJobs', total: zonaJobs.length ,empleos: zonaJobs})
     }
 
 
-    empleos.push({portal: 'Computrabajo', resultados: compuTrabajo.length, empleos: compuTrabajo})
-    empleos.push({portal: 'Indeed', resultados: indeed.length, empleos: indeed})
-    empleos.push({portal: 'Jooble', resultados:jooble.length, empleos:jooble})
+    empleos.push({portal: 'Computrabajo', total: compuTrabajo.length, empleos: compuTrabajo})
+    empleos.push({portal: 'Indeed', total: indeed.length, empleos: indeed})
+    empleos.push({portal: 'Jooble', total:jooble.length, empleos:jooble})
     
     
     await browser.close()
