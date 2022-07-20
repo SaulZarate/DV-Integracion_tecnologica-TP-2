@@ -25,7 +25,7 @@ Si desea que se abra el navegador para visualizar lo que hace puppeteer, modifiq
 - npm start
 - Ejemplo de endpoint: localhost:5000/api/v1/jobs?keywords=node react
 
-# Pendientes
+## Pendientes
 - Integrar mongodb
 
 ## Desarrollador
